@@ -11,7 +11,7 @@ endif
 
 let g:colors_name = 'low'
 
-if (!has('gui_running') && t_Co != 256)
+if (!has('gui_running') && &t_Co != 256)
   finish
 endif
 
