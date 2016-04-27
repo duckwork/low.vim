@@ -1,4 +1,5 @@
-" Nirvana.vim colorscheme funtimes
+" low.vim colorscheme
+" low contrast scheme, mane
 " by Case Duckworth
 
 if version > 580
@@ -10,27 +11,27 @@ endif
 
 let g:colors_name = 'low'
 
-" if (!has('gui_running') && t_Co != 256)
-"   finish
-" endif
+if (!has('gui_running') && t_Co != 256)
+  finish
+endif
 
 let s:is_dark = (&background == 'dark')
 
 let s:nc = {}
-let s:nc.dark = ['#222222']
-let s:nc.light = ['#eeeeee']
+let s:nc.dark = ['#262626', 235]
+let s:nc.light = ['#dadada', 253]
 
-let s:nc.dbrn = ['#666666']
-let s:nc.lbrn = ['#aaaaaa']
+let s:nc.dgry = ['#8a8a8a', 245]
+let s:nc.lgry = ['#6c6c6c', 242]
 
-let s:nc.dred = ['#880000']
-let s:nc.lred = ['#ff0000']
-let s:nc.dblu = ['#000088']
-let s:nc.lblu = ['#0000ff']
-let s:nc.dgrn = ['#008800']
-let s:nc.lgrn = ['#00ff00']
-let s:nc.dylw = ['#888800']
-let s:nc.lylw = ['#ffff00']
+let s:nc.dred = ['#da2626', 9]
+let s:nc.lred = ['#da2626', 1]
+let s:nc.dblu = ['#2626da', 12]
+let s:nc.lblu = ['#26268a', 4]
+let s:nc.dgrn = ['#26da26', 10]
+let s:nc.lgrn = ['#268a26', 2]
+let s:nc.dylw = ['#dada26', 11]
+let s:nc.lylw = ['#8a8a26', 3]
 
 let s:bold = 'bold,'
 let s:italic = 'italic,'
@@ -38,16 +39,16 @@ let s:underline = 'underline,'
 let s:undercurl = 'undercurl,'
 let s:inverse = 'inverse,'
 
-let s:vim_bg = ['bg']
-let s:vim_fg = ['fg']
-let s:none = ['NONE']
+let s:vim_bg = ['bg', 'bg']
+let s:vim_fg = ['fg', 'fg']
+let s:none = ['NONE', 'NONE']
 
 if s:is_dark
   let s:bg = s:nc.dark
   let s:fg = s:nc.light
-  let s:attn = s:nc.dblu
-  let s:invr = s:nc.dred
-  let s:brown = s:nc.dbrn
+  let s:attn = s:nc.dred
+  let s:invr = s:nc.dblu
+  let s:gray = s:nc.dgry
 
   let s:red = s:nc.dred
   let s:green = s:nc.dgrn
@@ -58,7 +59,7 @@ else
   let s:fg = s:nc.dark
   let s:attn = s:nc.lred
   let s:invr = s:nc.lblu
-  let s:brown = s:nc.lbrn
+  let s:gray = s:nc.lgry
 
   let s:red = s:nc.lred
   let s:green = s:nc.lgrn
@@ -82,9 +83,9 @@ function! s:HL(group, fg, ...)
   endif
 
   let histring = [ 'hi', a:group,
-        \ 'guifg=' . fg[0],
-        \ 'guibg=' . bg[0],
-        \ 'gui=' . emstr[:-2]
+        \ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
+        \ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
+        \ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2]
         \ ]
 
   if a:0 >= 3
@@ -100,13 +101,13 @@ call s:HL('Normal',        s:fg,     s:bg)
 call s:HL('IncSearch',     s:attn,   s:bg, s:inverse)
 call s:HL('Search',        s:attn,   s:bg, s:underline)
 
-call s:HL('CursorColumn',  s:brown, s:none, s:inverse)
+call s:HL('CursorColumn',  s:gray, s:none, s:inverse)
 call s:HL('CursorLine',    s:none)
 
 call s:HL('CursorLineNr',  s:attn)
-call s:HL('LineNr',        s:brown)
+call s:HL('LineNr',        s:gray)
 
-call s:HL('ColorColumn',   s:brown)
+call s:HL('ColorColumn',   s:gray)
 
 call s:HL('DiffAdd',       s:blue,   s:bg, s:bold)
 call s:HL('DiffChange',    s:blue)
@@ -116,8 +117,8 @@ call s:HL('DiffText',      s:blue,   s:bg, s:underline)
 call s:HL('ErrorMsg',      s:red)
 call s:HL('Question',      s:green)
 call s:HL('WarningMsg',    s:yellow)
-call s:HL('ModeMsg',       s:brown)
-call s:HL('WildMenu',      s:none)
+call s:HL('ModeMsg',       s:gray)
+call s:HL('WildMenu',      s:attn, s:none, s:underline)
 
 " call s:HL('Cursor',       
 " call s:HL('Directory',    
@@ -132,15 +133,15 @@ call s:HL('WildMenu',      s:none)
 call s:HL('MatchParen',    s:attn)
 call s:HL('Visual',        s:attn,   s:bg, s:inverse)
 
-call s:HL('NonText',       s:brown)
-call s:HL('SpecialKey',    s:brown)
+call s:HL('NonText',       s:gray)
+call s:HL('SpecialKey',    s:gray)
 
 call s:HL('VertSplit',     s:fg,     s:fg)
 call s:HL('StatusLine',    s:fg,     s:bg, s:inverse)
-call s:HL('StatusLineNC',  s:brown,  s:bg, s:inverse)
+call s:HL('StatusLineNC',  s:gray,  s:bg, s:inverse)
 
-call s:HL('TabLine',       s:brown,  s:bg, s:inverse)
-call s:HL('TabLineFill',   s:brown,  s:bg, s:inverse)
+call s:HL('TabLine',       s:gray,  s:bg, s:inverse)
+call s:HL('TabLineFill',   s:gray,  s:bg, s:inverse)
 call s:HL('TabLineSel',    s:fg,     s:bg, s:inverse)
 
 call s:HL('SpellBad',      s:attn,   s:bg, s:underline)
@@ -149,7 +150,7 @@ hi! link SpellLocal SpellBad
 hi! link SpellRare SpellBad
 
 " Syntax highlight groups 
-call s:HL('Comment',        s:brown,   s:none,   s:italic)
+call s:HL('Comment',        s:gray,   s:none,   s:italic)
 
 call s:HL('Constant',       s:none)
 call s:HL('String',         s:none)
@@ -199,3 +200,6 @@ hi! link haskellType Type
 call s:HL('haskellIdentifier', s:attn, s:none, s:italic)
 " " SH
 hi! link shHereDoc Italic
+call s:HL('diffRemoved', s:red)
+call s:HL('diffAdded', s:green)
+call s:HL('diffLine', s:none, s:none, s:underline)
