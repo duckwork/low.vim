@@ -32,6 +32,8 @@ let s:nc.dgrn = ['#26da26', 10]
 let s:nc.lgrn = ['#268a26', 2]
 let s:nc.dylw = ['#dada26', 11]
 let s:nc.lylw = ['#8a8a26', 3]
+let s:nc.dcyn = ['#26dada', 14]
+let s:nc.lcyn = ['#268a8a', 6]
 
 let s:bold = 'bold,'
 let s:italic = 'italic,'
@@ -46,9 +48,9 @@ let s:none = ['NONE', 'NONE']
 if s:is_dark
   let s:bg = s:nc.dark
   let s:fg = s:nc.light
-  let s:attn = s:nc.dred
-  let s:invr = s:nc.dblu
-  let s:gray = s:nc.dgry
+  let s:attn = s:nc.dcyn
+  let s:invr = s:nc.dylw
+  let s:gray = s:nc.lgry
 
   let s:red = s:nc.dred
   let s:green = s:nc.dgrn
@@ -57,8 +59,8 @@ if s:is_dark
 else
   let s:bg = s:nc.light
   let s:fg = s:nc.dark
-  let s:attn = s:nc.lred
-  let s:invr = s:nc.lblu
+  let s:attn = s:nc.lcyn
+  let s:invr = s:nc.lylw
   let s:gray = s:nc.lgry
 
   let s:red = s:nc.lred
