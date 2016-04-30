@@ -44,6 +44,7 @@ let s:inverse = 'inverse,'
 let s:vim_bg = ['bg', 'bg']
 let s:vim_fg = ['fg', 'fg']
 let s:none = ['NONE', 'NONE']
+let s:white = ['#ffffff', 15]
 
 if s:is_dark
   let s:bg = s:nc.dark
@@ -155,7 +156,7 @@ hi! link SpellRare SpellBad
 call s:HL('Comment',        s:gray,   s:none,   s:italic)
 
 call s:HL('Constant',       s:none)
-call s:HL('String',         s:none)
+call s:HL('String',         s:white)
 call s:HL('Character',      s:none)
 call s:HL('Number',         s:none)
 call s:HL('Boolean',        s:none)
