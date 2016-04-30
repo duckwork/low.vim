@@ -104,7 +104,7 @@ call s:HL('IncSearch',     s:attn,   s:bg, s:inverse)
 call s:HL('Search',        s:attn,   s:bg, s:underline)
 
 call s:HL('CursorColumn',  s:gray, s:none, s:inverse)
-call s:HL('CursorLine',    s:none)
+call s:HL('CursorLine',    s:none, s:none)
 
 call s:HL('CursorLineNr',  s:attn)
 call s:HL('LineNr',        s:gray)
@@ -132,8 +132,8 @@ call s:HL('WildMenu',      s:attn, s:none, s:underline)
 " call s:HL('SignColumn',   
 " call s:HL('Title',        
 
-call s:HL('MatchParen',    s:attn)
-call s:HL('Visual',        s:attn,   s:bg, s:inverse)
+call s:HL('MatchParen',    s:invr)
+call s:HL('Visual',        s:invr,   s:bg, s:inverse)
 
 call s:HL('NonText',       s:gray)
 call s:HL('SpecialKey',    s:gray)
