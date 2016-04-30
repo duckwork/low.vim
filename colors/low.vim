@@ -160,7 +160,7 @@ call s:HL('Boolean',        s:none)
 call s:HL('Float',          s:none)
 
 call s:HL('Identifier',     s:none, s:none, s:italic)
-call s:HL('Function',       s:none, s:none, s:italic . s:underlined)
+call s:HL('Function',       s:none, s:none, s:italic . s:underline)
 call s:HL('VarId',          s:none, s:none, s:italic)
 
 call s:HL('Statement',      s:none)
