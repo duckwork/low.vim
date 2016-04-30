@@ -96,7 +96,7 @@ function! s:HL(group, fg, ...)
 endfunction
 
 " Vim Highlight groups
-call s:HL('Normal',        s:fg,     s:bg)
+call s:HL('Normal',        s:none,     s:none)
 
 call s:HL('IncSearch',     s:attn,   s:bg, s:inverse)
 call s:HL('Search',        s:attn,   s:bg, s:underline)
