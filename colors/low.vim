@@ -159,9 +159,9 @@ call s:HL('Number',         s:none)
 call s:HL('Boolean',        s:none)
 call s:HL('Float',          s:none)
 
-call s:HL('Identifier',     s:none,    s:none,   s:italic)
-call s:HL('Function',       s:green,   s:none,   s:italic)
-call s:HL('VarId',          s:none,    s:none,   s:italic)
+call s:HL('Identifier',     s:none, s:none, s:italic)
+call s:HL('Function',       s:none, s:none, s:italic . s:underlined)
+call s:HL('VarId',          s:none, s:none, s:italic)
 
 call s:HL('Statement',      s:none)
 call s:HL('Conditional',    s:none)
